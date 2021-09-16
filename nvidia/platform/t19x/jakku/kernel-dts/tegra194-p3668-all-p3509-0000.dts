@@ -23,3 +23,13 @@
 
 	compatible = "nvidia,p3449-0000+p3668-0000", "nvidia,p3449-0000+p3668-0001", "nvidia,p3509-0000+p3668-0000", "nvidia,p3509-0000+p3668-0001", "nvidia,tegra194";
 };
+
+&sdmmc3 {
+    mmc-ocr-mask = <0x0>;
+    cd-gpios = <&tegra_main_gpio TEGRA194_MAIN_GPIO(Q, 2) 0>;
+    cd-inverted;
+    nvidia,cd-wakeup-capable;
+    nvidia,vmmc-always-on;
+    vmmc-supply = <&p3668_spmic_ldo3>;
+    status = "okay";
+};
